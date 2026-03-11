@@ -4,10 +4,26 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtendo o codigo do projeto
+        uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.300'
+      - name: Build the Docker image
+        working-directory: ./src/
+        run: dotnet build Review-Filmes.sln
+
+
+
+    
+
 
   build:
 
@@ -18,4 +34,3 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 ##########
-#############################
