@@ -35,5 +35,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/review-filmes:latest -f src/Review-Filmes.Web/Dockerfile src/Review-Filmes.Web
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/review-filmes:latest -f src/Review-Filmes.Web/Dockerfile src
           docker push ${{ secrets.DOCKER_USERNAME }}/review-filmes:latest
