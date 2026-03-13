@@ -27,3 +27,4 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/src/Review-Filmes.Test.EndToEnd/Dockerfile'
         tags: |
           $(tag)
+###############################
